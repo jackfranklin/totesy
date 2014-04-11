@@ -1,8 +1,7 @@
 var angular = require('angular');
 require('angularfire-browserify')(angular);
-var myApp = angular.module("MyApp", ["firebase"]);
+require('angular-router-browserify')(angular);
+var myApp = angular.module('MyApp', ['firebase', 'ngRoute']);
 
-myApp.controller('IndexCtrl', function($scope) {
-  $scope.foo = 'Hello moto';
-});
-
+require('./routes.js')(myApp);
+require('./index')(myApp);
