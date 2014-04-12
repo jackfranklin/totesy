@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="small-10 columns">
+    <h2>New Todo</h2>
+    <form ng-submit="newTodo()">
+      <div class="row">
+        <div class="large-12 columns">
+          <label>Title
+            <input type="text" ng-model="todo.title" />
+          </label>
+        </div>
+        <div class="large-12 columns">
+          <label>Description
+            <textarea ng-model="todo.description"></textarea>
+          </label>
+        </div>
+        <div class="large-12 columns">
+          <label>References
+            <textarea ng-model="todo.references"></textarea>
+          </label>
+        </div>
+        <div class="large-12 columns">
+          <label>Tags
+            <input type="text" ng-model="todo.tags" />
+          </label>
+        </div>
+        <div class="large-12 columns">
+          <label>Due Date (DD/MM/YY)
+            <input type="text" ng-model="todo.due" />
+          </label>
+        </div>
+        <div class="large-12 columns">
+          <input type="submit" class="button" value="Save">
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="small-2 columns">
+    <h4>Popular Tags</h4>
+  </div>
+</div>
