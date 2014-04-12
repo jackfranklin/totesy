@@ -1,5 +1,7 @@
 module.exports = function(app) {
-  app.controller('NewTodoCtrl', function($scope, TodoService) {
+  app.controller('NewTodoCtrl', function($scope, $timeout, TodoService) {
+    $scope.showAlert = false;
+    $scope.alertText = "Todo saved";
     $scope.newTodo = function() {
       console.log('called');
       console.log($scope.todo);
@@ -7,7 +9,10 @@ module.exports = function(app) {
       tidyTodo($scope.todo);
       console.log($scope.todo);
       TodoService.$add($scope.todo).then(function() {
-        console.log('todo saved');
+        $scope.showAlert = true;
+        $timeout(function() {
+          $scope.showAlert = false;
+        }, 2000);
       });
     };
   });

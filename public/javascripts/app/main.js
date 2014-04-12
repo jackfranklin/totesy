@@ -5,4 +5,5 @@ var myApp = angular.module('MyApp', ['firebase', 'ngRoute']);
 
 require('./services.js')(myApp);
 require('./routes.js')(myApp);
+require('./directives.js')(myApp);
 require('./controllers.js')(myApp);
