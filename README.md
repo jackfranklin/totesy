@@ -28,4 +28,8 @@ Run it:
 node bin/www
 ```
 
-Go to localhost:3000 and rock on.
+Go to localhost:3000 and rock on. Any help required running it, feel free to open an issue.
+
+---
+
+PS: the old Firebase URL I used is still in the Git commits somewhere. Don't get excited if you find it though, I ditched it so I could make this repo public :D
