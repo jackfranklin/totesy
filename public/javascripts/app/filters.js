@@ -1,3 +1,3 @@
 module.exports = function(app) {
-  require('./due-filter/')(app);
+  require('./date-filters/')(app);
 };

@@ -1,8 +1,9 @@
 <div ng-repeat="(id, item) in todos" class="panel todo-index">
-  <h3>{{ item.title }}</h3>
+  <h3>
+    {{ item.title }}
+    <span class="alert label" ng-if="item.due | overdue">Overdue</span>
+    <span class="label" ng-if="item.due | dueSoon">Due Soon</span>
+  </h3>
   <p>{{ item.description }}</p>
-  <span ng-show="item.due | dueSoon">
-    totes due soon
-  </span>
   <a href="#/todo/{{id}}">Edit</a>
 </div>

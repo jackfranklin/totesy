@@ -1,3 +1,6 @@
+secrets: traceur
+	./bin/replace_secrets
+
 traceur: browserify
 	traceur --out public/javascripts/build.js --script public/javascripts/bundle.js
 
