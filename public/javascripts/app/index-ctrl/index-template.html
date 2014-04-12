@@ -1,4 +1,8 @@
-<a href="#/new">Add a new todo</a>
- <ul ng-repeat="(id, item) in todos">
-   <li>{{ id }} {{ item.title }}</li>
-</ul>
+<div ng-repeat="(id, item) in todos" class="panel todo-index">
+  <h3>{{ item.title }}</h3>
+  <p>{{ item.description }}</p>
+  <span ng-show="item.due | dueSoon">
+    totes due soon
+  </span>
+  <a href="#/todo/{{id}}">Edit</a>
+</div>

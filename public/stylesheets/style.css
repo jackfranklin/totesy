@@ -1,1 +1,6 @@
-
+.todo-index {
+  width: 30%;
+  display: inline-block;
+  margin: 10px;
+  vertical-align: top;
+}
