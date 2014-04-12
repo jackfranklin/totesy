@@ -6,7 +6,7 @@ module.exports = function(app) {
     TagsService.all().then(function(tags) {
       $scope.tags = tags;
     });
-    $rootScope.showAlert = true;
+    $rootScope.showAlert = false;
     $rootScope.alertText = "Todo saved";
     $scope.newTodo = function() {
       tidyTodo($scope.todo);
