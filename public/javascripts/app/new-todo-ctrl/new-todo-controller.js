@@ -33,6 +33,8 @@ function tidyTodo(todo) {
     todo.tags = [];
   }
 
+  todo.state = 'NOT_STARTED';
+
   if(todo.due) {
     var [days, month, year] = todo.due.split('/');
     //todo: don't hardcode 2014
