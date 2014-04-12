@@ -1,3 +1,4 @@
+require('traceur/bin/traceur-runtime');
 var angular = require('angular');
 require('angularfire-browserify')(angular);
 require('angular-router-browserify')(angular);
