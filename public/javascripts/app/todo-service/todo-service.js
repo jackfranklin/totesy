@@ -1,6 +1,6 @@
 module.exports = function(app) {
-  app.factory('TodoService', function($firebase) {
-    var todosRef = new Firebase("https://resplendent-fire-9225.firebaseio.com/todos");
+  app.factory('TodoService', function($firebase, FIREBASE_URL) {
+    var todosRef = new Firebase(`${FIREBASE_URL}/todos`);
     return $firebase(todosRef);
   });
 };
