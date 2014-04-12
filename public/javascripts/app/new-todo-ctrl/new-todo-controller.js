@@ -2,7 +2,6 @@ module.exports = function(app) {
   app.controller('NewTodoCtrl', function($scope, $timeout, TodoService, TagsService) {
     $scope.todos = TodoService;
     TagsService.all().then(function(tags) {
-      console.log('RESOLVED', tags);
       $scope.tags = tags;
     });
     $scope.showAlert = false;

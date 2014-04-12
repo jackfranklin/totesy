@@ -22,10 +22,9 @@ module.exports = function(app) {
             }
             done();
           });
-        }, (err) => {
-          def.resolve(tagCount);
-        });
+        }, () => def.resolve(tagCount));
       });
+
       return def.promise;
     };
 
