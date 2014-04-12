@@ -1,11 +1,13 @@
 module.exports = function(app) {
-  app.controller('NewTodoCtrl', function($scope, $timeout, TodoService, TagsService) {
+  app.controller('NewTodoCtrl', function(
+    $rootScope, $scope, $timeout, TodoService, TagsService
+  ) {
     $scope.todos = TodoService;
     TagsService.all().then(function(tags) {
       $scope.tags = tags;
     });
-    $scope.showAlert = false;
-    $scope.alertText = "Todo saved";
+    $rootScope.showAlert = true;
+    $rootScope.alertText = "Todo saved";
     $scope.newTodo = function() {
       tidyTodo($scope.todo);
       TodoService.$add($scope.todo).then(function() {
