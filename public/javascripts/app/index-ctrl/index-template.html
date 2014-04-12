@@ -1,4 +1,4 @@
 <a href="#/new">Add a new todo</a>
- <ul ng-repeat="item in todos">
-   <li>{{ item.title }}</li>
+ <ul ng-repeat="(id, item) in todos">
+   <li>{{ id }} {{ item.title }}</li>
 </ul>
