@@ -1,5 +1,27 @@
 module.exports = function(app) {
   app.controller('NewTodoCtrl', function($scope, $timeout, TodoService) {
+    $scope.todos = TodoService;
+
+    $scope.tags = {};
+    $scope.todos.$on('loaded', function() {
+      console.log($scope.todos.$getIndex());
+      var keys = $scope.todos.$getIndex();
+
+      keys.forEach(k => {
+        var child = $scope.todos.$child(k);
+        child.$on('loaded', function() {
+          var tags = child.tags;
+          if(tags) {
+            tags.forEach(t => {
+              console.log('got tag', t);
+              console.log($scope.tags);
+              $scope.tags[t] = $scope.tags[t] || 0;
+              $scope.tags[t]++;
+            });
+          }
+        });
+      });
+    });
     $scope.showAlert = false;
     $scope.alertText = "Todo saved";
     $scope.newTodo = function() {
@@ -8,7 +30,8 @@ module.exports = function(app) {
         $scope.showAlert = true;
         $timeout(function() {
           $scope.showAlert = false;
-        }, 2000);
+        }, 5000);
+        $scope.todo = {};
       });
     };
   });

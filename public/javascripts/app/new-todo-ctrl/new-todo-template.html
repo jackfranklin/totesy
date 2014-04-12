@@ -37,5 +37,8 @@
   </div>
   <div class="small-2 columns">
     <h4>Popular Tags</h4>
+    <span ng-repeat="(tag, count) in tags">
+      {{ tag }}: {{ count }}
+    </span>
   </div>
 </div>
