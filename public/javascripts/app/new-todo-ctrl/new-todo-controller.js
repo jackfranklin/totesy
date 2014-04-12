@@ -1,7 +1,10 @@
 module.exports = function(app) {
-  app.controller('NewTodoCtrl', function($scope, $timeout, TodoService) {
+  app.controller('NewTodoCtrl', function($scope, $timeout, TodoService, TagsService) {
     $scope.todos = TodoService;
-    getTags($scope);
+    TagsService.all().then(function(tags) {
+      console.log('RESOLVED', tags);
+      $scope.tags = tags;
+    });
     $scope.showAlert = false;
     $scope.alertText = "Todo saved";
     $scope.newTodo = function() {
@@ -37,25 +40,4 @@ function tidyTodo(todo) {
     var date = `${days}-${month}-${year}`;
     todo.due = date;
   }
-}
-
-function getTags($scope) {
-  $scope.todos.$on('loaded', function() {
-    $scope.tags = {};
-    var keys = $scope.todos.$getIndex();
-
-    keys.forEach(k => {
-      var child = $scope.todos.$child(k);
-      child.$on('loaded', function() {
-        var tags = child.tags;
-        if(tags) {
-          tags.forEach(t => {
-            $scope.tags[t] = $scope.tags[t] || 0;
-            $scope.tags[t]++;
-          });
-        }
-        $scope.$digest();
-      });
-    });
-  });
 }
