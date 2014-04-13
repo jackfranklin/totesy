@@ -20,14 +20,7 @@ Sign up for and attain a Firebase URL. [Sign Up Here](https://www.firebase.com/a
 
 Rename `secrets.json.example` to `secrets.json` and add in your Firebase URL to it.
 
-Get some global dependencies up in here:
-
-```sh
-npm install -g traceur
-npm install -g browserify
-```
-
-Local dependencies:
+Install dependencies:
 
 ```sh
 npm install
@@ -36,7 +29,7 @@ npm install
 Generate the build file:
 
 ```
-make
+make dev
 ```
 
 Run it:
