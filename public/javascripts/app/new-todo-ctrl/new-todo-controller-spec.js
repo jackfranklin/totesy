@@ -19,6 +19,7 @@ describe('NewTodoControllerSpec', function() {
   };
 
   beforeEach(inject(function($injector, $controller, $rootScope) {
+    spyOn(TagsServiceStub, 'all').andCallThrough();
     scope = $rootScope.$new();
     rootScope = $rootScope;
 
@@ -27,7 +28,12 @@ describe('NewTodoControllerSpec', function() {
       TagsService: TagsServiceStub,
       TodoService: TodoServiceStub
     });
+
   }));
+
+  it('gets all the tags from the tag service', function() {
+    expect(TagsServiceStub.all).toHaveBeenCalled();
+  });
 
   it('sets up the notification on the $rootScope', function() {
     expect(rootScope.showAlert).toEqual(false);
