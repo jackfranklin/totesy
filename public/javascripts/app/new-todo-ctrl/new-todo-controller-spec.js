@@ -19,7 +19,7 @@ describe('NewTodoControllerSpec', function() {
   };
 
   beforeEach(inject(function($injector, $controller, $rootScope) {
-    spyOn(TagsServiceStub, 'all').andCallThrough();
+    spyOn(TagsServiceStub, 'all').and.callThrough();
     scope = $rootScope.$new();
     rootScope = $rootScope;
 

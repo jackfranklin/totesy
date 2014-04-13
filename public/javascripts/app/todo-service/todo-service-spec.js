@@ -6,7 +6,7 @@ describe('TodoServiceSpec', function() {
   };
 
   beforeEach(module(function($provide) {
-    spyOn(spyFirebase, 'firebase').andCallThrough();
+    spyOn(spyFirebase, 'firebase').and.callThrough();
     $provide.value('$firebase', spyFirebase.firebase);
   }));
 
