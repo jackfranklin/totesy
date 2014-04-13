@@ -10,6 +10,8 @@ There's nothing exciting about this app, I'm building it to suit exactly what I 
 - An AngularJS frontend, running a Firebase backend (well, with a tiny ExpressJS server to tie it together).
 - Written with some sprinkles of ES6 thanks to Traceur.
 - Using npm for dependencies thanks to Browserify.
+- Global dependencies (Angular) dealt with through Bower.
+- AngularJS tests written using Jasmine and Karma.
 - not using Grunt/Gulp/Broccoli but just a simple Makefile.
 
 Any Qs about any of that stuff, feel free to ask. Or if you know Angular better than me (highly likely, I am still learning) please do let me know if I could be doing things differently.
@@ -24,7 +26,7 @@ Install dependencies:
 
 ```sh
 npm install
-bower install
+./node_modules/bower/bin/bower install
 ```
 
 Generate the build file:
