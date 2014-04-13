@@ -48,6 +48,12 @@ make watch
 
 It watches for changes in `public/javascripts/app` and runs `make` when it detects them.
 
+Test it with:
+
+```
+make test
+```
+
 ---
 
 PS: the old Firebase URL I used is still in the Git commits somewhere. Don't get excited if you find it though, I ditched it so I could make this repo public :D
