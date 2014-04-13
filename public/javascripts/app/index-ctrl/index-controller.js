@@ -1,3 +1,5 @@
+var moment = require('moment');
+
 module.exports = function(app) {
 
   app.controller('IndexCtrl', function($scope,
@@ -10,6 +12,12 @@ module.exports = function(app) {
     $scope.todos = TodoService;
 
     $scope.state = 'all';
+
+    $scope.orderByDate = function(todo) {
+      if(!todo.due) return 0;
+      var date = moment(todo.due, "DD-MM-YY");
+      return date.unix();
+    };
 
     $scope.filterByState = function(state) {
       return function(todo) {

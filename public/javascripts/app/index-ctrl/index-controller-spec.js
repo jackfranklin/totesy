@@ -24,6 +24,17 @@ describe('CustomersIndexControllerSpec', function() {
     expect(scope.todos).toBeDefined();
   });
 
+  describe('ordering todos by date', function() {
+    it('orders them by date in asc order', function() {
+      var farAway = { due: '20-04-2018' };
+      var closer = { due: '19-04-2016' };
+      expect(scope.orderByDate(closer) < scope.orderByDate(farAway)).toBe(true);
+    });
+
+    it('gives no date todos a score of 0', function() {
+      expect(scope.orderByDate({})).toEqual(0);
+    });
+  });
   describe('filtering todos', function() {
     it('filters out none by default', function() {
       var res = scope.filterByState('all')();
