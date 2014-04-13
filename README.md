@@ -24,6 +24,7 @@ Install dependencies:
 
 ```sh
 npm install
+bower install
 ```
 
 Generate the build file:
