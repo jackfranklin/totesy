@@ -1,3 +1,4 @@
 public/javascripts/development.js
 public/javascripts/production.js
+public/javsscripts/lib/vendor.min.js
 secrets.json

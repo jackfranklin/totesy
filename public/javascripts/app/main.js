@@ -1,7 +1,5 @@
 require('traceur/bin/traceur-runtime');
-var angular = require('angular');
-require('angularfire-browserify')(angular);
-require('angular-router-browserify')(angular);
+
 var app = angular.module('MyApp', ['firebase', 'ngRoute']);
 
 app.constant('FIREBASE_URL', '!firebase_url!');

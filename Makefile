@@ -1,6 +1,8 @@
 development_out = public/javascripts/development.js
 production_out = public/javascripts/production.js
+production_temp = public/javascripts/production-tmp.js
 app_main = public/javascripts/app/main.js
+lib_dir = public/javascripts/lib
 
 dev: secrets
 
@@ -16,7 +18,15 @@ browserify:
 watch: dev
 	./node_modules/common-shell-scripts/watch public/javascripts/app/ make
 
-prod: dev
-	./node_modules/ngmin/bin/ngmin $(development_out) $(production_out)
-	./node_modules/uglify-js/bin/uglifyjs $(production_out) -o $(production_out)
+minify_vendor_files:
+	cd $(lib_dir) && cat angular.min.js angular-route.min.js firebase.js angularfire.min.js > vendor.min.js
+
+prod: dev minify_vendor_files
+	./node_modules/ngmin/bin/ngmin $(development_out) $(production_temp)
+	./node_modules/uglify-js/bin/uglifyjs $(production_temp) -o $(production_temp)
+	cat public/javascripts/lib/vendor.min.js $(production_temp) > $(production_out)
+	rm $(production_temp)
+
+test:
+	./node_modules/karma/bin/karma start
 
