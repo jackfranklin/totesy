@@ -19,7 +19,12 @@ watch: dev
 	./node_modules/common-shell-scripts/watch public/javascripts/app/ make
 
 minify_vendor_files:
-	cd $(lib_dir) && cat angular.min.js angular-route.min.js firebase.js angularfire.min.js > vendor.min.js
+	./node_modules/bower/bin/bower install
+	cd $(lib_dir) && \
+		cat angular/angular.min.js \
+		angular-route/angular-route.min.js \
+		firebase/firebase.js \
+		angularfire/angularfire.min.js > vendor.min.js
 
 prod: dev minify_vendor_files
 	./node_modules/ngmin/bin/ngmin $(development_out) $(production_temp)

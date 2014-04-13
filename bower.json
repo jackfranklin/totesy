@@ -1,0 +1,23 @@
+{
+  "name": "totesy",
+  "version": "0.0.0",
+  "homepage": "https://github.com/jackfranklin/totesy",
+  "authors": [
+    "Jack Franklin <jack@jackfranklin.net>"
+  ],
+  "moduleType": [
+    "globals"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.2.16"
+  }
+}
