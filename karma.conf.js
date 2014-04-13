@@ -20,6 +20,7 @@ module.exports = function(config) {
       'public/javascripts/lib/angular-mocks/angular-mocks.js',
       'public/javascripts/lib/firebase/firebase.js',
       'public/javascripts/lib/angularfire/angularfire.min.js',
+      'public/javascripts/lib/momentjs/min/moment.min.js',
       'public/javascripts/development.js',
       'public/javascripts/app/**/*-spec.js'
     ],

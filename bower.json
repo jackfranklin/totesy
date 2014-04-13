@@ -18,6 +18,7 @@
     "tests"
   ],
   "dependencies": {
-    "angular": "~1.2.16"
+    "angular": "~1.2.16",
+    "momentjs": "~2.6.0"
   }
 }
