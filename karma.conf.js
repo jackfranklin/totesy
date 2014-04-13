@@ -15,11 +15,11 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'public/javascripts/lib/angular.min.js',
-      'public/javascripts/lib/angular-route.min.js',
-      'public/javascripts/lib/angular-mocks.js',
-      'public/javascripts/lib/firebase.js',
-      'public/javascripts/lib/angularfire.min.js',
+      'public/javascripts/lib/angular/angular.min.js',
+      'public/javascripts/lib/angular-route/angular-route.min.js',
+      'public/javascripts/lib/angular-mocks/angular-mocks.js',
+      'public/javascripts/lib/firebase/firebase.js',
+      'public/javascripts/lib/angularfire/angularfire.min.js',
       'public/javascripts/development.js',
       'public/javascripts/app/**/*-spec.js'
     ],
