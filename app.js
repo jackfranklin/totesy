@@ -6,8 +6,6 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var routes = require('./routes');
-
 var app = express();
 
 // view engine setup
@@ -22,7 +20,11 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(app.router);
 
-app.get('/', routes.index);
+app.get('/', function(req, res) {
+  res.render('index', {
+    env: app.get('env')
+  });
+});
 
 // development error handler
 // will print stacktrace

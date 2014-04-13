@@ -1,3 +1,3 @@
-public/javascripts/bundle.js
-public/javascripts/build.js
+public/javascripts/development.js
+public/javascripts/production.js
 secrets.json
