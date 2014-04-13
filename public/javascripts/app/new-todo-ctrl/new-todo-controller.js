@@ -39,7 +39,7 @@ function tidyTodo(todo) {
     var [days, month, year] = todo.due.split('/');
     //todo: don't hardcode 2014
     if(!year) { year = '14'; }
-    if(year.length > 2) { year = year.substring(0, 2); }
+    if(year.length > 2) { year = year.substring(2, 4); }
     var date = `${days}-${month}-${year}`;
     todo.due = date;
   }
