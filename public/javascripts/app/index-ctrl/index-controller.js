@@ -14,7 +14,9 @@ module.exports = function(app) {
     $scope.state = 'all';
 
     $scope.orderByDate = function(todo) {
-      if(!todo.due) return 0;
+      // some unreasonably large timestamp
+      // this is so bad I know
+      if(!todo.due) return 9999999999;
       var date = moment(todo.due, "DD-MM-YY");
       return date.unix();
     };

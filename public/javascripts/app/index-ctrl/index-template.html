@@ -9,7 +9,7 @@
 </div>
 <div class="row">
   <div class="large-12 column">
-    <div ng-repeat="(id, item) in todos | orderByPriority | filter:filterByState(state) | orderBy:orderByDate" class="panel todo-index">
+    <div ng-repeat="item in todos | orderByPriority | filter:filterByState(state) | orderBy:orderByDate" class="panel todo-index">
       <span class="label">{{ item.state | prettyState }}</span>
       <h3>
         {{ item.title }}<br>
@@ -18,7 +18,7 @@
         <span class="label" ng-if="item.due | dueSoon">Due Soon</span>
       </h3>
       <p>{{ item.description }}</p>
-      <a href="#/todo/{{id}}">Edit</a>
+      <a href="#/todo/{{item.$id}}">Edit</a>
     </div>
   </div>
 </div>

@@ -31,8 +31,8 @@ describe('CustomersIndexControllerSpec', function() {
       expect(scope.orderByDate(closer) < scope.orderByDate(farAway)).toBe(true);
     });
 
-    it('gives no date todos a score of 0', function() {
-      expect(scope.orderByDate({})).toEqual(0);
+    it('gives no date todos a score of 9999999999', function() {
+      expect(scope.orderByDate({})).toEqual(9999999999);
     });
   });
   describe('filtering todos', function() {
