@@ -8,8 +8,32 @@ module.exports = function(app) {
     });
     $rootScope.showAlert = false;
     $rootScope.alertText = "Todo saved";
+    $scope.tidyTodo = function() {
+      if($scope.todo.references) {
+        $scope.todo.references = $scope.todo.references.split('\n');
+      } else {
+        $scope.todo.references = [];
+      }
+      if($scope.todo.tags) {
+        $scope.todo.tags = $scope.todo.tags.split(',').map(t => t.trim());
+      } else {
+        $scope.todo.tags = [];
+      }
+
+      $scope.todo.state = 'NOT_STARTED';
+
+      if($scope.todo.due) {
+        var [days, month, year] = $scope.todo.due.split('/');
+        //todo: don't hardcode 2014
+        if(!year) { year = '14'; }
+        if(year.length > 2) { year = year.substring(2, 4); }
+        var date = `${days}-${month}-${year}`;
+        $scope.todo.due = date;
+      }
+    };
+
     $scope.newTodo = function() {
-      tidyTodo($scope.todo);
+      $scope.tidyTodo();
       TodoService.$add($scope.todo).then(function() {
         $rootScope.showAlert = true;
         $timeout(function() {
@@ -21,26 +45,3 @@ module.exports = function(app) {
   });
 };
 
-function tidyTodo(todo) {
-  if(todo.references) {
-    todo.references = todo.references.split('\n');
-  } else {
-    todo.references = [];
-  }
-  if(todo.tags) {
-    todo.tags = todo.tags.split(',');
-  } else {
-    todo.tags = [];
-  }
-
-  todo.state = 'NOT_STARTED';
-
-  if(todo.due) {
-    var [days, month, year] = todo.due.split('/');
-    //todo: don't hardcode 2014
-    if(!year) { year = '14'; }
-    if(year.length > 2) { year = year.substring(2, 4); }
-    var date = `${days}-${month}-${year}`;
-    todo.due = date;
-  }
-}
