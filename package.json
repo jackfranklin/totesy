@@ -18,6 +18,7 @@
     "moment": "^2.6.0",
     "traceur": "0.0.33",
     "async": "^0.7.0",
-    "node-watch": "^0.3.4"
+    "node-watch": "^0.3.4",
+    "common-shell-scripts": "0.0.1"
   }
 }
