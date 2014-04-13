@@ -47,6 +47,14 @@ node bin/www
 
 Go to localhost:3000 and rock on. Any help required running it, feel free to open an issue.
 
+To keep the generated JS files up to date as you work, in another window/tab you should run:
+
+```
+make watch
+```
+
+It watches for changes in `public/javascripts/app` and runs `make` when it detects them.
+
 ---
 
 PS: the old Firebase URL I used is still in the Git commits somewhere. Don't get excited if you find it though, I ditched it so I could make this repo public :D
