@@ -1,4 +1,4 @@
-describe('CustomersIndexControllerSpec', function(){
+describe('CustomersIndexControllerSpec', function() {
   var scope, ctrl;
 
   beforeEach(module('MyApp'));
@@ -23,4 +23,23 @@ describe('CustomersIndexControllerSpec', function(){
   it('gets todos', function() {
     expect(scope.todos).toBeDefined();
   });
+
+  describe('filtering todos', function() {
+    it('filters out none by default', function() {
+      var res = scope.filterByState('all')();
+      expect(res).toBe(true);
+    });
+
+    it('shows only overdue if filtered', function() {
+      var overdue = moment().subtract('days', 2).format("DD-MM-YY");
+      var notOverdue = moment();
+      expect(scope.filterByState('overdue')({
+        due: overdue
+      })).toBe(true);
+      expect(scope.filterByState('overdue')({
+        due: notOverdue
+      })).toBe(false);
+    });
+  });
+
 });

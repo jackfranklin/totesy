@@ -3,7 +3,9 @@ module.exports = function(app) {
   app.controller('IndexCtrl', function($scope,
                                        $firebase,
                                        TodoService,
-                                       overdueFilter
+                                       overdueFilter,
+                                       dueSoonFilter,
+                                       dueTodayFilter
                                       ) {
     $scope.todos = TodoService;
 
@@ -16,6 +18,10 @@ module.exports = function(app) {
             return true;
           case 'overdue':
             return overdueFilter(todo.due);
+          case 'duesoon':
+            return dueSoonFilter(todo.due);
+          case 'duetoday':
+            return dueTodayFilter(todo.due);
         }
       };
     };

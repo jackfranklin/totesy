@@ -1,8 +1,16 @@
 .todo-index {
   width: 30%;
   display: inline-block;
-  margin: 10px;
+  margin-right: 3%;
   vertical-align: top;
 }
 
 .top-notification { margin-bottom: 0; }
+
+.todo-filters {
+  margin-top: 10px;
+}
+
+.todo-filters .active {
+  font-weight: bold;
+}
