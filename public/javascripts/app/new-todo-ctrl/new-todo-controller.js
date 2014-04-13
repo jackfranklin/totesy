@@ -11,9 +11,9 @@ module.exports = function(app) {
     $scope.newTodo = function() {
       tidyTodo($scope.todo);
       TodoService.$add($scope.todo).then(function() {
-        $scope.showAlert = true;
+        $rootScope.showAlert = true;
         $timeout(function() {
-          $scope.showAlert = false;
+          $rootScope.showAlert = false;
         }, 5000);
         $scope.todo = {};
       });
