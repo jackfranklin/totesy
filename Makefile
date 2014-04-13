@@ -6,3 +6,6 @@ traceur: browserify
 
 browserify:
 	browserify public/javascripts/app/main.js -o public/javascripts/bundle.js
+
+watch:
+	./bin/watch public/javascripts/app/ make

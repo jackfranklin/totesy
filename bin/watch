@@ -1,0 +1,13 @@
+#!/usr/bin/env node
+
+var watch = require('node-watch');
+var exec = require('child_process').exec;
+
+watch(process.argv[2], function(filename) {
+    console.log(filename, 'changed');
+
+    exec(process.argv[3], function(err, stdout, stderr) {
+      if(err) console.log(err);
+      console.log(stdout);
+    });
+});

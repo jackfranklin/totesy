@@ -17,6 +17,7 @@
     "angular-router-browserify": "0.0.1",
     "moment": "^2.6.0",
     "traceur": "0.0.33",
-    "async": "^0.7.0"
+    "async": "^0.7.0",
+    "node-watch": "^0.3.4"
   }
 }
