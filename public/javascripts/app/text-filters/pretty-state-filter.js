@@ -6,10 +6,5 @@ module.exports = function(app) {
   };
   app.filter('prettyState', () => (input) => lookup[input]);
 
-  app.filter('prettyState', function() {
-    return function(input) {
-      return lookup[input];
-    };
-  });
 };
 

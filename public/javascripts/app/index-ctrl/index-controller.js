@@ -15,7 +15,6 @@ module.exports = function(app) {
           case 'all':
             return true;
           case 'overdue':
-            console.log(todo);
             return overdueFilter(todo.due);
         }
       };
