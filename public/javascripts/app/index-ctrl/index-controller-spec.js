@@ -3,7 +3,11 @@ describe('CustomersIndexControllerSpec', function(){
 
   beforeEach(module('MyApp'));
 
-  beforeEach(angular.mock.inject(function($injector, $controller, $rootScope) {
+  beforeEach(module(function($provide) {
+    $provide.value('$firebase', function() { return true; });
+  }));
+
+  beforeEach(inject(function($injector, $controller, $rootScope) {
     scope = $rootScope.$new();
 
     ctrl = $controller('IndexCtrl', {
@@ -14,5 +18,9 @@ describe('CustomersIndexControllerSpec', function(){
 
   it('sets the scope state', function() {
     expect(scope.state).toEqual('all');
+  });
+
+  it('gets todos', function() {
+    expect(scope.todos).toBeDefined();
   });
 });
