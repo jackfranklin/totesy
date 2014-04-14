@@ -5,6 +5,5 @@ module.exports = function(app) {
     'BLOCKED': 'blocked'
   };
   app.filter('prettyState', () => (input) => lookup[input]);
-
 };
 

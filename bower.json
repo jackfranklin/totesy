@@ -19,6 +19,10 @@
   ],
   "dependencies": {
     "angular": "~1.2.16",
+    "angular-mocks": "~1.2.16",
+    "angular-route": "~1.2.16",
+    "angularfire": "~0.7.1",
+    "firebase": "~1.0.11",
     "momentjs": "~2.6.0"
   }
 }
