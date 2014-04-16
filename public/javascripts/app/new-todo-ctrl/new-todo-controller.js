@@ -8,7 +8,9 @@ module.exports = function(app) {
     });
     $rootScope.showAlert = false;
     $rootScope.alertText = "Todo saved";
+
     $scope.tidyTodo = function() {
+      $scope.todo.done = false;
       if($scope.todo.references) {
         $scope.todo.references = $scope.todo.references.split('\n');
       } else {

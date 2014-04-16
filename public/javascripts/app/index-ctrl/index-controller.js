@@ -11,7 +11,10 @@ module.exports = function(app) {
                                       ) {
     $scope.todos = TodoService;
 
-    $scope.state = 'all';
+    $scope.state = 'notDone';
+    $scope.markTodoAsDone = function(todoId) {
+      $scope.todos.$child(todoId).$update({ done: true });
+    };
 
     $scope.orderByDate = function(todo) {
       // some unreasonably large timestamp
@@ -26,6 +29,8 @@ module.exports = function(app) {
         switch(state) {
           case 'all':
             return true;
+          case 'notDone':
+            return !todo.done;
           case 'overdue':
             return overdueFilter(todo.due);
           case 'duesoon':

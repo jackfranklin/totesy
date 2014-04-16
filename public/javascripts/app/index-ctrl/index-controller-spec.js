@@ -7,17 +7,26 @@ describe('CustomersIndexControllerSpec', function() {
     $provide.value('$firebase', function() { return true; });
   }));
 
+  var TodoServiceStub = {
+    $child: function(id) {
+      return {
+        $update: function() {}
+      };
+    }
+  };
+
   beforeEach(inject(function($injector, $controller, $rootScope) {
     scope = $rootScope.$new();
 
     ctrl = $controller('IndexCtrl', {
-      $scope: scope
+      $scope: scope,
+      TodoService: TodoServiceStub
     });
   }));
 
 
   it('sets the scope state', function() {
-    expect(scope.state).toEqual('all');
+    expect(scope.state).toEqual('notDone');
   });
 
   it('gets todos', function() {
@@ -50,6 +59,15 @@ describe('CustomersIndexControllerSpec', function() {
       expect(scope.filterByState('overdue')({
         due: notOverdue
       })).toBe(false);
+    });
+  });
+
+  describe('marking todos as done', function() {
+    it('gets the TODO by the ID', function() {
+      spyOn(TodoServiceStub, '$child').and.callThrough();
+
+      scope.markTodoAsDone(1234);
+      expect(scope.todos.$child).toHaveBeenCalled();
     });
   });
 

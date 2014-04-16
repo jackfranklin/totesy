@@ -67,6 +67,12 @@ describe('NewTodoControllerSpec', function() {
       expect(scope.todo.references[1]).toEqual('bar');
     });
 
+    it('sets done to false', function() {
+      scope.todo = {};
+      scope.tidyTodo();
+      expect(scope.todo.done).toEqual(false);
+    });
+
     it('splits tags by comman and removes whitespace', function() {
       scope.todo = {
         tags: 'foo, bar,baz'

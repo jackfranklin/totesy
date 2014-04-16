@@ -1,10 +1,21 @@
 <div class="row">
   <div class="large-12 column">
     <ul class="inline-list todo-filters">
-      <li ng-class="{active: state == 'all'}"><a href="" ng-click="state = 'all'">Show All</a></li>
-      <li ng-class="{active: state == 'overdue'}"><a href="" ng-click="state = 'overdue'">Overdue</a></li>
-      <li ng-class="{active: state == 'duesoon'}"><a href="" ng-click="state = 'duesoon'">Due Soon</a></li>
-      <li ng-class="{active: state == 'duetoday'}"><a href="" ng-click="state = 'duetoday'">Due Today</a></li>
+      <li ng-class="{active: state == 'all'}">
+        <a href="" ng-click="state = 'all'">Show All</a>
+      </li>
+      <li ng-class="{active: state == 'notDone'}">
+        <a href="" ng-click="state = 'notDone'">Not Done</a>
+      </li>
+      <li ng-class="{active: state == 'overdue'}">
+        <a href="" ng-click="state = 'overdue'">Overdue</a>
+      </li>
+      <li ng-class="{active: state == 'duesoon'}">
+        <a href="" ng-click="state = 'duesoon'">Due Soon</a>
+      </li>
+      <li ng-class="{active: state == 'duetoday'}">
+        <a href="" ng-click="state = 'duetoday'">Due Today</a>
+      </li>
   </div>
 </div>
 <div class="row">
@@ -19,6 +30,7 @@
       </h3>
       <p>{{ item.description }}</p>
       <a href="#/todo/{{item.$id}}">Edit</a>
+      <a href="" ng-click="markTodoAsDone(item.$id)">DONE</a>
     </div>
   </div>
 </div>
