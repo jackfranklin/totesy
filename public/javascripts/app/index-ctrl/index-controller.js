@@ -31,6 +31,8 @@ module.exports = function(app) {
             return true;
           case 'notDone':
             return !todo.done;
+          case 'done':
+            return todo.done === true;
           case 'overdue':
             return overdueFilter(todo.due);
           case 'duesoon':
