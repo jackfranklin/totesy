@@ -9,6 +9,10 @@ module.exports = function(app) {
       templateUrl: '/javascripts/app/new-todo-ctrl/new-todo-template.html',
       controller: 'NewTodoCtrl'
     })
+    .when('/todo/:id', {
+      templateUrl: '/javascripts/app/view-todo-ctrl/view-todo-template.html',
+      controller: 'ViewTodoCtrl'
+    })
     .otherwise({
       redirectTo: '/'
     });

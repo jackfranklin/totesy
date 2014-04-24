@@ -1,0 +1,40 @@
+<div class="row todo-single" ng-if="item.state">
+  <div class="large-8 column">
+    <div class="panel">
+      <h1> {{ item.title }} </h1>
+      <div class="panel" ng-if="item.description">
+        <h4>Description</h4>
+        <p>{{ item.description }}</p>
+      </div>
+      <div class="panel" ng-if="item.references">
+        <h4>References</h4>
+        <ul>
+          <li ng-repeat="ref in item.references"><a href="{{ref}}">{{ref}}</a></li>
+        </ul>
+      </div>
+      <div class="panel" ng-if="item.tags">
+        <h4>Tags</h4>
+        <ul>
+          <li ng-repeat="tag in item.tags">{{tag}}</a></li>
+        </ul>
+      </div>
+
+      <div class="panel actions">
+        <h4>Actions</h4>
+        <a ng-if="item.state === 'NOT_STARTED'" href="" class="button" ng-click="markTodoAsStarted(item.$id)">Start</a>
+        <a href="" class="button" ng-click="markTodoAsDone(item.$id)">Done</a>
+      </div>
+
+
+    </div>
+  </div>
+  <div class="large-3 column large-offset-1 labels-col">
+    <span class="label secondary">{{ item.state | prettyState }}</span>
+    <span class="label secondary">{{ item.time | timeDuration }}</span>
+    <span class="label secondary" ng-if="item.due">Due: {{ item.due }}</span>
+    <span class="alert label" ng-if="item.due | overdue">Overdue</span>
+    <span class="alert label" ng-if="item.due | dueToday">Due Today</span>
+    <span class="alert label" ng-if="item.due | dueSoon">Due Soon</span>
+  </div>
+</div>
+

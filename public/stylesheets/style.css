@@ -5,6 +5,25 @@
   vertical-align: top;
 }
 
+.todo-single .panel {
+  margin-top: 30px;
+}
+
+.todo-single .label {
+  padding: 10px;
+  font-size: 20px;
+}
+
+.todo-single .labels-col {
+  margin-top: 30px;
+}
+
+.todo-single .labels-col .label {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+
 .top-notification { margin-bottom: 0; }
 
 .todo-filters {

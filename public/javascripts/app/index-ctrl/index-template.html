@@ -23,9 +23,12 @@
 </div>
 <div class="row">
   <div class="large-12 column">
-    <div ng-repeat="item in todos | orderByPriority | filter:filterByState(state) | orderBy:orderByDate" class="panel todo-index">
-      <span class="label">{{ item.state | prettyState }}</span>
-      <span class="label secondary">{{ item.time }} minutes</span>
+    <div
+      ng-repeat="item in todos | orderByPriority | filter:filterByState(state) | orderBy:orderByDate"
+      class="panel todo-index">
+      <span class="label secondary">{{ item.state | prettyState }}</span>
+      <span class="label secondary">{{ item.time | timeDuration }}</span>
+      <span class="label secondary" ng-if="item.due">Due: {{ item.due }}</span>
       <h3>
         <a href="#/todo/{{item.$id}}">{{ item.title }}</a><br>
         <span class="alert label" ng-if="item.due | overdue">Overdue</span>
