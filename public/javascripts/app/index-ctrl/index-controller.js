@@ -16,6 +16,10 @@ module.exports = function(app) {
       $scope.todos.$child(todoId).$update({ done: true });
     };
 
+    $scope.markTodoAsStarted = function(todoId) {
+      $scope.todos.$child(todoId).$update({ state: 'STARTED' });
+    };
+
     $scope.orderByDate = function(todo) {
       // some unreasonably large timestamp
       // this is so bad I know

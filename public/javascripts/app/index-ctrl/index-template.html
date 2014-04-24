@@ -25,15 +25,17 @@
   <div class="large-12 column">
     <div ng-repeat="item in todos | orderByPriority | filter:filterByState(state) | orderBy:orderByDate" class="panel todo-index">
       <span class="label">{{ item.state | prettyState }}</span>
+      <span class="label secondary">{{ item.time }} minutes</span>
       <h3>
-        {{ item.title }}<br>
+        <a href="#/todo/{{item.$id}}">{{ item.title }}</a><br>
         <span class="alert label" ng-if="item.due | overdue">Overdue</span>
         <span class="alert label" ng-if="item.due | dueToday">Due Today</span>
-        <span class="label" ng-if="item.due | dueSoon">Due Soon</span>
+        <span class="alert label" ng-if="item.due | dueSoon">Due Soon</span>
       </h3>
       <p>{{ item.description }}</p>
-      <a href="#/todo/{{item.$id}}">Edit</a>
-      <a href="" ng-click="markTodoAsDone(item.$id)">DONE</a>
+      <p ng-if="item.tags"><strong>Tags</strong>: {{ item.tags.join(",") }}</p>
+      <a href="" class="button" ng-click="markTodoAsStarted(item.$id)">Start</a>
+      <a href="" class="button" ng-click="markTodoAsDone(item.$id)">Done</a>
     </div>
   </div>
 </div>
