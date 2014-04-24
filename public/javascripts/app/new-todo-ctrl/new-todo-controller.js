@@ -1,6 +1,6 @@
 module.exports = function(app) {
   app.controller('NewTodoCtrl', function(
-    $rootScope, $scope, $timeout, TodoService, TagsService
+    $rootScope, $scope, $timeout, TodoService, TagsService, $location
   ) {
     $scope.todos = TodoService;
     TagsService.all().then(function(tags) {
@@ -41,6 +41,7 @@ module.exports = function(app) {
         $timeout(function() {
           $rootScope.showAlert = false;
         }, 5000);
+        $location.path( "/" );
         $scope.todo = {};
       });
     };
