@@ -37,6 +37,10 @@ module.exports = function(app) {
             return !todo.done;
           case 'done':
             return todo.done === true;
+          case 'started':
+            return todo.state === 'STARTED';
+          case 'quickTasks':
+            return todo.time < 16;
           case 'overdue':
             return overdueFilter(todo.due);
           case 'duesoon':

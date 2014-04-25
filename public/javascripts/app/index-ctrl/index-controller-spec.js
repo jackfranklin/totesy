@@ -1,4 +1,4 @@
-describe('CustomersIndexControllerSpec', function() {
+describe('IndexControllerSpec', function() {
   var scope, ctrl;
 
   beforeEach(module('MyApp'));

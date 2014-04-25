@@ -11,15 +11,15 @@ module.exports = function(app) {
                                        dueTodayFilter
                                       ) {
     $scope.todos = TodoService;
-
-    $scope.markTodoAsDone = function(todoId) {
-      $scope.item.$update({ done: true });
-    };
-
     $scope.item = $scope.todos.$child($routeParams.id);
 
+    $scope.markTodoAsDone = function(todoId) {
+      TodoService.markTodoAsDone(todoId);
+    };
+
+
     $scope.markTodoAsStarted = function(todoId) {
-      $scope.item.$update({ state: 'STARTED' });
+      TodoService.markTodoAsStarted(todoId);
     };
 
   });

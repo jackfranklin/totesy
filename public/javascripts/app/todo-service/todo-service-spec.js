@@ -1,8 +1,9 @@
 describe('TodoServiceSpec', function() {
+
   beforeEach(module('MyApp'));
 
   var spyFirebase = {
-    firebase: function() {}
+    firebase: function() { return {}; }
   };
 
   beforeEach(module(function($provide) {
@@ -15,7 +16,7 @@ describe('TodoServiceSpec', function() {
   }));
 
   it('should construct a new $firebase', function() {
-     expect(spyFirebase.firebase).toHaveBeenCalled();
+    expect(spyFirebase.firebase).toHaveBeenCalled();
   });
 
 });
