@@ -4,9 +4,10 @@ module.exports = function(app) {
   app.filter('dueSoon', () => {
     return (input) => {
       if(!input) return false;
-      var date = moment(input, "DD-MM-YY");
-      var diff = date.diff(moment(), 'days');
-      return diff > 0 && diff < 3;
+      var now = moment().format("DD-MM-YY");
+      var [dueDay, dueMonth, dueYear] = input.split("-");
+      var [nowDay, nowMonth, nowYear] = now.split("-");
+      return nowYear === dueYear && nowMonth === dueMonth && (dueDay - nowDay) < 4;
     };
   });
 };
