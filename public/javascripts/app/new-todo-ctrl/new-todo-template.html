@@ -41,8 +41,10 @@
   </div>
   <div class="small-2 columns">
     <h4>Popular Tags</h4>
-    <span ng-repeat="(tag, count) in tags">
-      {{ tag }}: {{ count }}
+    <span class="label round popular-tag"
+      ng-repeat="(tag, count) in tags"
+      ng-click="addTag(tag)">
+      {{ tag }} ({{count}})
     </span>
   </div>
 </div>

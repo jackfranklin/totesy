@@ -9,6 +9,13 @@ module.exports = function(app) {
     $rootScope.showAlert = false;
     $rootScope.alertText = "Todo saved";
 
+    $scope.todo = { tags: "" };
+    $scope.addTag = function(tag) {
+      var tags = $scope.todo.tags.split(',').map(t => t.trim());
+      tags.push(tag);
+      $scope.todo.tags = tags.filter(t => !!t).join(', ');
+    };
+
     $scope.tidyTodo = function() {
       $scope.todo.done = false;
       if($scope.todo.references) {

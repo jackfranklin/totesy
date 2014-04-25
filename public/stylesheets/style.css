@@ -33,3 +33,8 @@
 .todo-filters .active {
   font-weight: bold;
 }
+
+.popular-tag {
+  font-size: 15px;
+  margin: 10px 2px;
+}
