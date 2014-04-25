@@ -12,12 +12,6 @@
           <li ng-repeat="ref in item.references"><a href="{{ref}}">{{ref}}</a></li>
         </ul>
       </div>
-      <div class="panel" ng-if="item.tags">
-        <h4>Tags</h4>
-        <ul>
-          <li ng-repeat="tag in item.tags">{{tag}}</a></li>
-        </ul>
-      </div>
 
       <div class="panel actions">
         <h4>Actions</h4>
@@ -35,6 +29,16 @@
     <span class="alert label" ng-if="item.due | overdue">Overdue</span>
     <span class="alert label" ng-if="item.due | dueToday">Due Today</span>
     <span class="alert label" ng-if="item.due | dueSoon">Due Soon</span>
+    <h4>Tags</h4>
+    <span class="label" ng-repeat="tag in item.tags">{{tag}}</span>
+    <div class="row">
+      <form ng-submit="newTag()">
+        <div class="large-12 columns">
+          <input type="text" ng-model="form.newTagValue" placeholder="add a tag" />
+        </div>
+      </form>
+        </div>
+
   </div>
 </div>
 

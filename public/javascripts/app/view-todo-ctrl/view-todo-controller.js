@@ -22,6 +22,14 @@ module.exports = function(app) {
       TodoService.markTodoAsStarted(todoId);
     };
 
+    $scope.form = {};
+    $scope.newTag = function() {
+      if($scope.form.newTagValue) {
+        TodoService.addTagToTodo($routeParams.id, $scope.form.newTagValue);
+        $scope.form.newTagValue = "";
+      }
+    };
+
   });
 
 };
