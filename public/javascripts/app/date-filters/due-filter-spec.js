@@ -18,4 +18,9 @@ describe('dueSoonFilterSpec', function() {
     expect(filter(soon)).toBe(false);
   });
 
+  it("should not be due soon if it's due today", function() {
+    var soon = moment().format("DD-MM-YY");
+    expect(filter(soon)).toBe(false);
+  });
+
 });

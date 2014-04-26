@@ -7,7 +7,8 @@ module.exports = function(app) {
       var now = moment().format("DD-MM-YY");
       var [dueDay, dueMonth, dueYear] = input.split("-");
       var [nowDay, nowMonth, nowYear] = now.split("-");
-      return nowYear === dueYear && nowMonth === dueMonth && (dueDay - nowDay) < 4;
+      return nowYear === dueYear && nowMonth === dueMonth
+          && (dueDay - nowDay) < 4 && (dueDay - nowDay) > 0;
     };
   });
 };
