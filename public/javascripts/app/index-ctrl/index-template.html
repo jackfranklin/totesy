@@ -32,19 +32,21 @@
     <div
       ng-repeat="item in todos | orderByPriority | filter:filterByState(state) | orderBy:orderByDate"
       class="panel todo-index">
-      <span class="label secondary">{{ item.state | prettyState }}</span>
+      <span ng-if="!item.done" class="label secondary">{{ item.state | prettyState }}</span>
       <span class="label secondary">{{ item.time | timeDuration }}</span>
       <span class="label secondary" ng-if="item.due">Due: {{ item.due }}</span>
       <h3>
         <a href="#/todo/{{item.$id}}">{{ item.title }}</a><br>
-        <span class="alert label" ng-if="item.due | overdue">Overdue</span>
-        <span class="alert label" ng-if="item.due | dueToday">Due Today</span>
-        <span class="alert label" ng-if="item.due | dueSoon">Due Soon</span>
+        <div ng-if="!item.done">
+          <span class="alert label" ng-if="item.due | overdue">Overdue</span>
+          <span class="alert label" ng-if="item.due | dueToday">Due Today</span>
+          <span class="alert label" ng-if="item.due | dueSoon">Due Soon</span>
+        </div>
       </h3>
       <p>{{ item.description }}</p>
       <p ng-if="item.tags"><strong>Tags</strong>: {{ item.tags.join(",") }}</p>
       <a ng-if="item.state == 'NOT_STARTED'" href="" class="button" ng-click="markTodoAsStarted(item.$id)">Start</a>
-      <a href="" class="button" ng-click="markTodoAsDone(item.$id)">Done</a>
+      <a href="" ng-if="!item.done" class="button" ng-click="markTodoAsDone(item.$id)">Done</a>
     </div>
   </div>
 </div>
