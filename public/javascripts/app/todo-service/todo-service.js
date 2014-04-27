@@ -10,6 +10,15 @@ module.exports = function(app) {
       fbRef.$child(todoId).$update({ state: 'STARTED' });
     };
 
+    fbRef.addRefToTodo = function(todoId, ref) {
+      var todo = fbRef.$child(todoId);
+      todo.$on('loaded', () => {
+        var refs = todo.references || [];
+        refs.push(ref);
+        todo.$update({ references: refs });
+      });
+    };
+
     fbRef.addTagToTodo = function(todoId, tag) {
       var todo = fbRef.$child(todoId);
       todo.$on('loaded', () => {

@@ -6,11 +6,18 @@
         <h4>Description</h4>
         <p>{{ item.description }}</p>
       </div>
-      <div class="panel" ng-if="item.references">
+      <div class="panel">
         <h4>References</h4>
         <ul>
           <li ng-repeat="ref in item.references"><a href="{{ref}}">{{ref}}</a></li>
         </ul>
+        <div class="row">
+          <form ng-submit="newReference()">
+            <div class="large-12 columns">
+              <input type="text" ng-model="form.newRefValue" placeholder="http://bbc.com" />
+            </div>
+          </form>
+        </div>
       </div>
 
       <div class="panel actions">
@@ -37,7 +44,7 @@
           <input type="text" ng-model="form.newTagValue" placeholder="add a tag" />
         </div>
       </form>
-        </div>
+    </div>
 
   </div>
 </div>

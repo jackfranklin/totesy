@@ -30,6 +30,13 @@ module.exports = function(app) {
       }
     };
 
+    $scope.newReference = function() {
+      if($scope.form.newRefValue) {
+        TodoService.addRefToTodo($routeParams.id, $scope.form.newRefValue);
+        $scope.form.newRefValue = "";
+      }
+    };
+
   });
 
 };
