@@ -29,6 +29,10 @@ module.exports = function(app) {
         $scope.todo.tags = [];
       }
 
+      if(!$scope.todo.time) {
+        $scope.todo.time = 15;
+      }
+
       $scope.todo.state = 'NOT_STARTED';
 
       if($scope.todo.due) {
