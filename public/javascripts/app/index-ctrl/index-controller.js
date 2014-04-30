@@ -40,13 +40,13 @@ module.exports = function(app) {
           case 'started':
             return todo.state === 'STARTED';
           case 'quickTasks':
-            return todo.time < 16;
+            return todo.time < 16 && !todo.done;
           case 'overdue':
-            return overdueFilter(todo.due);
+            return overdueFilter(todo.due) && !todo.done;
           case 'duesoon':
-            return dueSoonFilter(todo.due);
+            return dueSoonFilter(todo.due) && !todo.done;
           case 'duetoday':
-            return dueTodayFilter(todo.due);
+            return dueTodayFilter(todo.due) && !todo.done;
         }
       };
     };
