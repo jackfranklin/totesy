@@ -19,13 +19,19 @@ watch: dev
 	./node_modules/common-shell-scripts/watch public/javascripts/app/ make
 
 minify_vendor_files:
-	./node_modules/bower/bin/bower install
+	./node_modules/bower/bin/bower install --allow-root
 	cd $(lib_dir) && \
 		cat angular/angular.min.js \
 		angular-route/angular-route.min.js \
 		angular-animate/angular-animate.min.js \
 		firebase/firebase.js \
 		angularfire/angularfire.min.js > vendor.min.js
+
+deploy:
+	./node_modules/common-shell-scripts/replace_secrets secrets.json bin/deploy bin/deploy_made
+	chmod +x bin/deploy_made
+	./bin/deploy_made
+	rm ./bin/deploy_made
 
 prod: dev minify_vendor_files
 	./node_modules/ngmin/bin/ngmin $(development_out) $(production_temp)
