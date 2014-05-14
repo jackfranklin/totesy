@@ -23,7 +23,6 @@ minify_vendor_files:
 	cd $(lib_dir) && \
 		cat angular/angular.min.js \
 		angular-route/angular-route.min.js \
-		angular-animate/angular-animate.min.js \
 		firebase/firebase.js \
 		angularfire/angularfire.min.js > vendor.min.js
 

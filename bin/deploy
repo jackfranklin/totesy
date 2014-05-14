@@ -1,12 +1,10 @@
 #!/bin/sh
 
-cd /www/totesy
-
 git pull origin master
 
 make prod
 
 pkill -f "node bin/www"
 
-NODE_ENV=production node bin/www
+NODE_ENV=production node bin/www&
 
