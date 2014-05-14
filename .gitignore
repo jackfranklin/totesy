@@ -3,3 +3,4 @@ public/javascripts/production.js
 public/javascripts/lib
 secrets.json
 bin/deploy_made
+node_modules/
