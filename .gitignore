@@ -4,3 +4,4 @@ public/javascripts/lib
 secrets.json
 bin/deploy_made
 node_modules/
+public/javascripts/lib/vendor.min.js
